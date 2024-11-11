@@ -59,26 +59,26 @@ function Weather() {
         <button onClick={submitHandle} className='rounded-lg ml-2 max-h-10'>Search</button>
         </div>
         <div className='flex justify-center'>
-        <img src={weatherData.icon || londonWeather.icon} alt="Icon" className='w-7/12 h-full'/>
+        <img src={weatherData.icon || londonWeather.icon} alt="Icon" className='h-full w-full'/>
         </div>
         <div className='text-5xl'>{weatherData.location || londonWeather.location}</div>
         <div className='text-5xl mt-8'>{weatherData.temperature || londonWeather.temperature}°C</div>
-        <div className='mt-8'>
-        <div className='flex gap-2'>
-          <div>
-        <img src={humidity} alt="humidity" className='h-12 w-12 text-gray'/>
+        
+        <div className='flex gap-2 mt-8'>
+          <div className='size-12'>
+        <img src={humidity} alt="humidity" className='h-full w-full text-gray'/>
           </div>
         <div className='mr-14 '>{weatherData.humidity || londonWeather.humidity}%
           <h2>Humidity</h2>
         </div>
-        <div>
-        <img src={wind} alt="wind" className='h-12 w-12 text-gray'/>
+        <div className='size-12'>
+        <img src={wind} alt="wind" className='h-full w-full text-gray'/>
         </div>
         <div className='font-bold'>{weatherData.windSpeed || londonWeather.windSpeed}Km/h 
 
         <h2 className='font-bold'>Wind Speed</h2>
         </div>
-        </div>
+        
         </div>
 
     </div>
