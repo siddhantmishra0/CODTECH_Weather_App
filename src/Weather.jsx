@@ -63,7 +63,7 @@ function Weather() {
         <div className='text-5xl'>{weatherData.location || londonWeather.location}</div>
         <div className='text-5xl mt-8'>{weatherData.temperature || londonWeather.temperature}°C</div>
         
-        <div className='flex gap-2 pt-6 pl-6 pb-6'>
+        <div className='flex gap-2 p-6'>
           <div className='size-12'>
         <img src={humidity} alt="humidity" className='h-full w-full text-gray'/>
           </div>
