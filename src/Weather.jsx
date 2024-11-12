@@ -8,7 +8,6 @@ function Weather() {
     const [londonWeather,setLondonWeather] = useState({})
     const submitHandle = ((e)=>{
       e.preventDefault();
-      console.log(city)
       search(city)
     })
     const londonData = async (london)=> {
@@ -16,7 +15,6 @@ function Weather() {
         const londonUrl = `https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=${import.meta.env.VITE_API_KEY}`;
         const londonResponse = await fetch(londonUrl);
         const londonData = await londonResponse.json();
-        console.log(londonData)
         setLondonWeather({
           humidity : londonData.main.humidity,
           temperature : Math.round(londonData.main.temp),
@@ -40,7 +38,7 @@ function Weather() {
           temperature : Math.round(data.main.temp),
           windSpeed : data.wind.speed,
           location : data.name,
-          icon : (data) ? `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png` : `https://openweathermap.org/img/wn/01d@2x.png`,
+          icon :`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
         })
       } catch (error) {
         console.log(error)
@@ -48,23 +46,24 @@ function Weather() {
     }
     
   return (
-    <div className='w-full px-8 py-8 rounded-lg  h-full bg-blue-500 text-white border-none'>
+  <>
+    <div className='w-full rounded-lg  h-full bg-blue-500 text-white border-none m-auto'>
       <div className='flex'>
         <input 
         type="text" 
         placeholder='Enter city name' 
-        className='p-2 rounded-lg w-full max-h-10' 
+        className='p-2 m-6 mr-2 rounded-lg w-full max-h-10' 
         onChange={(e)=> setCity(e.target.value)}
         />
-        <button onClick={submitHandle} className='rounded-lg ml-2 max-h-10'>Search</button>
+        <button onClick={submitHandle} className='rounded-lg mr-6 mt-6 max-h-10'>Search</button>
         </div>
-        <div className='flex justify-center'>
+        <div className='flex justify-center size-11/12'>
         <img src={weatherData.icon || londonWeather.icon} alt="Icon" className='h-full w-full'/>
         </div>
         <div className='text-5xl'>{weatherData.location || londonWeather.location}</div>
         <div className='text-5xl mt-8'>{weatherData.temperature || londonWeather.temperature}°C</div>
         
-        <div className='flex gap-2 mt-8'>
+        <div className='flex gap-2 pt-6 pl-6 pb-6'>
           <div className='size-12'>
         <img src={humidity} alt="humidity" className='h-full w-full text-gray'/>
           </div>
@@ -82,6 +81,7 @@ function Weather() {
         </div>
 
     </div>
+    </>
   )
 }
 
