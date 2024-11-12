@@ -48,7 +48,7 @@ function Weather() {
     }
     
   return (
-    <div className='w-full px-8 py-8 rounded-lg  h-full bg-blue-300 text-white border-none'>
+    <div className='w-full px-8 py-8 rounded-lg  h-full bg-blue-500 text-white border-none'>
       <div className='flex'>
         <input 
         type="text" 
